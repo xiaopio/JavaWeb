@@ -1,0 +1,22 @@
+
+	<!--pagehelper-->
+	<dependency>
+		<groupId>com.github.pagehelper</groupId>
+		<artifactId>pagehelper-spring-boot-starter</artifactId>
+		<version>2.1.0</version>
+	</dependency>
+
+
+	<!--JWT令牌-->
+	<dependency>
+		<groupId>io.jsonwebtoken</groupId>
+		<artifactId>jjwt</artifactId>
+		<version>0.9.1</version>
+	</dependency>
+
+	<!--如果生成JWT令牌报错：Caused by: java.lang.ClassNotFoundException: javax.xml.bind.DatatypeConverter，需要引入下面依赖-->
+	<dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>2.2.2</version>
+    </dependency>
