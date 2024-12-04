@@ -132,6 +132,254 @@
 
 内容区域（content）、内边距区域（padding）、边框区域（border）、外边距区域（margin）
 
+### CSS选择器
+
+选择标签用的
+
+#### 基础选择器
+
+##### 标签选择器
+
+写上标签名
+
+##### 类选择器
+
+结构需要用class属性来调用class类的意思
+
+##### id选择器
+
+*样式#定义，结构id调用，只能调用一次，别人切勿使用*
+
+类选择器：可以多次使用
+
+id选择器：只能使用一次
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS样式</title>
+  <style>
+    /* 选择器 {样式} */
+    /* 给谁修改样式 {改什么样式} */
+    /* 标签选择器：标签名 {} */
+    p {
+      color: red;
+      /* 修改文字大小 */
+      font-size: 20px;
+    }
+    div {
+      color: pink;
+    }
+    /* 类选择器：样式点定义 结构类（class）调用 一个或多个 开发最常用 */
+    .red {
+      color: red;
+    }
+    .font35 {
+      font-size: 35px;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+    }
+    .div-red {
+      background-color: red;
+    }
+    .div-yellow {
+      background-color: yellow;
+    }
+    .div-green {
+      background-color: green;
+    }
+    /* id选择器：样式#定义，结构id调用，只能调用一次，别人切勿使用 */
+    #pink {
+      color: pink;
+    }
+  </style>
+</head>
+<body>
+  <p>体验CSS语法规范</p>
+  <div>女生</div>
+  <ul>
+    <li class="red">第一行</li>
+    <li>第二行</li>
+    <li>第三行</li>
+    <li>第四行</li>
+  </ul>
+  <div class="div-red box"></div>
+  <div class="div-yellow box"></div>
+  <div class="div-green box"></div>
+  <div class="red font35">刘德华</div>
+  <div id="pink">吴彦祖</div>
+</body>
+</html>
+```
+
+##### 通配符选择器
+
+ *{属性1： 属性值1 ... } 选择所有标签
+
+### 字体属性
+
+##### 字体
+
+```
+font-family: 'Microsoft Yahei';
+```
+
+##### 文字大小
+
+```
+font-size: 16px;
+```
+
+标题比较特殊，需要单独调整大小
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS样式</title>
+  <style>
+    h2 {
+      font-family: 'Microsoft Yahei';
+      /* font-weight: normal; */
+      font-weight: 400;
+    }
+    p {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+    }
+    .bold {
+      /* font-weight: bold; */
+      /* 700后面不要跟数字，等价于bold加粗效果 */
+      /* 实际开发中更常用数字 表示加粗或变细 */
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <h2>Hello World</h2>
+  <p>体验</p>
+  <p class="bold">CSS</p>
+  <p>语法</p>
+  <p>规范</p>
+</body>
+</html>
+```
+
+##### 文字样式
+
+```
+/* 斜体 */
+font-style: italic;
+```
+
+更多时候要使用斜体字，使用em、i标签，要变为正常样式时设置
+
+```
+font-style: normal;
+```
+
+##### 复合属性
+
+字体大小*font-size*和字体*font-family*不能省略
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS样式</title>
+  <style>
+    div {
+      /* font-style: italic;
+      font-weight: 700;
+      font-size: 16px;
+      font-family: 'Microsoft Yahei'; */
+      /* 复合属性：简写方式 节约代码 */
+      /* font: font-style font-weight font-size/font-height font-family */
+      font: italic 700 16px 'Microsoft Yahei';
+    }
+  </style>
+</head>
+<body>
+  <div>马踏飞燕</div>
+</body>
+</html>
+```
+
+### 文本属性
+
+##### 文本颜色
+
+```
+color: red;
+color: #ff0000;
+color: rgb(255, 0, 0) 或 rgb(100%, 0%, 0%)
+```
+
+##### 文本对齐
+
+```
+text-align: center;
+text-align: left;
+text-align: right;
+```
+
+##### 装饰文本
+
+```
+/* 上划线 */
+text-decoration: overline;
+/* 删除线 */
+text-decoration: line-through;
+/* 下划线 */
+text-decoration: underline;
+/* 取消下划线 */
+text-decoration: none;
+```
+
+##### 文本缩进
+
+```
+/* 文本的首行缩进 缩进多少距离 */
+text-indent: 20px;
+/* 当前元素两个文字大小 */
+text-indent: 2em;
+```
+
+##### 行间距
+
+行高
+
+```
+line-height: 16px;
+```
+
+### CSS的引入方式
+
+##### 内部样式表（内嵌样式表）
+
+html页面内，style标签中 嵌入式引用
+
+##### 行内样式表 
+
+在元素标签内部的style属性中设置CSS样式，适合于修改简单样式
+
+##### 外部样式表
+
+单独写一个CSS文件，link标签引入html页面中
+
+```
+<link rel="stylesheet" href="../css/style.css">
+```
+
 # JavaScript
 
 JavaScript：一门跨平台、面向对象的脚本语言。用来控制网页行为，它能使网页可交互
